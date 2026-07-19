@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gemini 文生图</title>
+    <script src="./config.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace" aria-labelledby="page-title">
+        <div class="intro">
+          <p class="eyebrow">Local Gemini Image Proxy</p>
+          <h1 id="page-title">Gemini 文生图</h1>
+          <p class="summary">通过本机后端安全调用 Gemini API，访客只需要访问口令和提示词。</p>
+        </div>
+
+        <form class="generator" id="generator-form">
+          <label class="field">
+            <span>访问口令</span>
+            <input id="access-token" name="accessToken" type="password" autocomplete="current-password" placeholder="输入共享口令" required>
+          </label>
+
+          <label class="field prompt-field">
+            <span>提示词</span>
+            <textarea id="prompt" name="prompt" rows="8" maxlength="2000" placeholder="例如：一张电影海报风格的城市夜景，霓虹灯、雨后街道、细腻光影，画面中写着“未来已来”。" required></textarea>
+          </label>
+
+          <div class="controls">
+            <label class="field">
+              <span>比例</span>
+              <select id="aspect-ratio" name="aspectRatio">
+                <option value="1:1">1:1 方图</option>
+                <option value="16:9">16:9 横图</option>
+                <option value="9:16">9:16 竖图</option>
+                <option value="4:3">4:3 横图</option>
+                <option value="3:4">3:4 竖图</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>尺寸</span>
+              <select id="image-size" name="imageSize">
+                <option value="1K">1K</option>
+                <option value="512px">512px</option>
+                <option value="2K">2K</option>
+                <option value="4K">4K</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="action-row">
+            <p id="counter" class="counter">0 / 2000</p>
+            <button id="submit-button" type="submit">生成图片</button>
+          </div>
+
+          <p id="status" class="status" role="status" aria-live="polite"></p>
+          <p id="api-origin" class="api-origin"></p>
+        </form>
+      </section>
+
+      <section class="preview" aria-labelledby="preview-title">
+        <div class="preview-header">
+          <div>
+            <p class="eyebrow">Preview</p>
+            <h2 id="preview-title">生成结果</h2>
+          </div>
+          <a id="download-link" class="download-link" href="#" download="gemini-image.png" aria-disabled="true">下载</a>
+        </div>
+
+        <div id="image-frame" class="image-frame">
+          <p>生成后的图片会显示在这里。</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
