@@ -20,8 +20,8 @@ if (savedToken) {
 }
 
 apiOriginText.textContent = apiBaseUrl
-  ? `API: ${apiBaseUrl}`
-  : 'API: 当前站点后端';
+  ? `OpenAI API 代理: ${apiBaseUrl}`
+  : 'OpenAI API 代理: 当前站点后端';
 
 function setStatus(message, type = 'neutral') {
   statusText.textContent = message;
@@ -48,7 +48,7 @@ function showImage(imageBase64, mimeType) {
 
   const image = document.createElement('img');
   image.src = imageUrl;
-  image.alt = 'Gemini 生成的图片';
+  image.alt = 'OpenAI 生成的图片';
   image.loading = 'eager';
   imageFrame.append(image);
 
@@ -82,7 +82,7 @@ form.addEventListener('submit', async (event) => {
   window.localStorage.setItem('gemini-image-access-token', accessToken);
   setBusy(true);
   resetDownload();
-  setStatus('正在请求 Gemini 生成图片...', 'neutral');
+  setStatus('正在请求 OpenAI 生成图片...', 'neutral');
 
   try {
     const params = new URLSearchParams({
