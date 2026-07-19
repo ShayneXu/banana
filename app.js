@@ -85,18 +85,14 @@ form.addEventListener('submit', async (event) => {
   setStatus('正在请求 Gemini 生成图片...', 'neutral');
 
   try {
-    const response = await fetch(generateEndpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${accessToken}`
-      },
-      body: JSON.stringify({
-        prompt,
-        aspectRatio: aspectRatioInput.value,
-        imageSize: imageSizeInput.value
-      })
+    const params = new URLSearchParams({
+      accessToken,
+      prompt,
+      aspectRatio: aspectRatioInput.value,
+      imageSize: imageSizeInput.value
     });
+
+    const response = await fetch(`${generateEndpoint}?${params.toString()}`);
 
     const payload = await response.json().catch(() => ({}));
 
