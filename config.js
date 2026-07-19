@@ -1,3 +1,3 @@
 window.GEMINI_IMAGE_APP_CONFIG = {
-  apiBaseUrl: 'https://swift-windows-drive.loca.lt'
+  apiBaseUrl: 'https://voted-copy-discussing-mrs.trycloudflare.com'
 };
