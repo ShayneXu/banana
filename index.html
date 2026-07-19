@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gemini 文生图</title>
+    <title>OpenAI 文生图</title>
     <script src="./config.js?v=20260719-cloudflare"></script>
     <link rel="stylesheet" href="./styles.css?v=20260719-cloudflare">
   </head>
@@ -11,9 +11,9 @@
     <main class="app-shell">
       <section class="workspace" aria-labelledby="page-title">
         <div class="intro">
-          <p class="eyebrow">Local Gemini Image Proxy</p>
-          <h1 id="page-title">Gemini 文生图</h1>
-          <p class="summary">通过本机后端安全调用 Gemini API，访客只需要访问口令和提示词。</p>
+          <p class="eyebrow">Local OpenAI Image Proxy</p>
+          <h1 id="page-title">OpenAI 文生图</h1>
+          <p class="summary">通过本机后端安全调用 OpenAI 图像生成 API，访客只需要访问口令和提示词。</p>
         </div>
 
         <form class="generator" id="generator-form">
@@ -29,23 +29,23 @@
 
           <div class="controls">
             <label class="field">
-              <span>比例</span>
+              <span>画幅</span>
               <select id="aspect-ratio" name="aspectRatio">
-                <option value="1:1">1:1 方图</option>
-                <option value="16:9">16:9 横图</option>
-                <option value="9:16">9:16 竖图</option>
-                <option value="4:3">4:3 横图</option>
-                <option value="3:4">3:4 竖图</option>
+                <option value="1:1">方图 1024x1024</option>
+                <option value="16:9">横图 1536x1024</option>
+                <option value="9:16">竖图 1024x1536</option>
+                <option value="4:3">横图 1536x1024</option>
+                <option value="3:4">竖图 1024x1536</option>
               </select>
             </label>
 
             <label class="field">
-              <span>尺寸</span>
+              <span>质量</span>
               <select id="image-size" name="imageSize">
-                <option value="1K">1K</option>
-                <option value="512px">512px</option>
-                <option value="2K">2K</option>
-                <option value="4K">4K</option>
+                <option value="auto">自动</option>
+                <option value="low">低</option>
+                <option value="medium">中</option>
+                <option value="high">高</option>
               </select>
             </label>
           </div>
